@@ -1,0 +1,16 @@
+{
+    "items": [
+        {
+            "flow_type": "expense",
+            "category": "その他の経費",
+            "name": "その他の支出",
+            "date": null,
+            "value": 390000,
+            "handwritten": false,
+            "fullData": {
+                "支出の目的": "その他の支出",
+                "金額": 390000
+            }
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "flow_type": "income",
+    "category": "政治団体からの寄附",
+    "name": "その他の寄附",
+    "date": null,
+    "value": 70000,
+    "handwritten": false,
+    "fullData": {
+      "項目": "その他の寄附",
+      "金額": 70000
+    }
+  },
+  {
+    "flow_type": "income",
+    "category": "政治団体からの寄附",
+    "name": "合計",
+    "date": null,
+    "value": 70000,
+    "handwritten": false,
+    "fullData": {
+      "項目": "合計",
+      "金額": 70000
+    }
+  }
+]

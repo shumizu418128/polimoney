@@ -1,0 +1,26 @@
+[
+  {
+    "flow_type": "expense",
+    "category": "その他の経費",
+    "name": "その他の支出",
+    "date": null,
+    "value": 252500,
+    "handwritten": false,
+    "fullData": {
+      "項目": "その他の支出",
+      "金額": 252500
+    }
+  },
+  {
+    "flow_type": "expense",
+    "category": "その他（合計）",
+    "name": "合計",
+    "date": null,
+    "value": 252500,
+    "handwritten": false,
+    "fullData": {
+      "項目": "合計",
+      "金額": 252500
+    }
+  }
+]
