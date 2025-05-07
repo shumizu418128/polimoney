@@ -1,198 +1,83 @@
-[
-  {
-    "flow_type": "income",
-    "category": "その他（計）",
-    "name": "(計)",
-    "date": null,
-    "value": 360000,
-    "handwritten": false,
-    "fullData": {
-      "寄附者の氏名（又は名称）": "(計)",
-      "金 額": 360000,
-      "年 月 日": null,
-      "住 所 （又は所在地）": null,
-      "職業（又は代表者の氏名）": null,
-      "備 考": null
+{
+  "year": null,
+  "categories": [
+    {
+      "id": "cat_individual_donations_001",
+      "name": "個人からの寄付",
+      "parent": null,
+      "direction": "income"
     }
-  },
-  {
-    "flow_type": "income",
-    "category": "個人からの寄附",
-    "name": "神宮 幸四郎",
-    "date": "R5.10.2",
-    "value": 10000,
-    "handwritten": false,
-    "fullData": {
-      "寄附者の氏名（又は名称）": "神宮 幸四郎",
-      "金 額": 10000,
-      "年 月 日": "5 10 2",
-      "住 所 （又は所在地）": "東京都中野区中央4-1-20",
-      "職業（又は代表者の氏名）": "会社役員",
-      "備 考": null
+  ],
+  "transactions": [
+    {
+      "id": "tx_0001",
+      "category_id": "cat_individual_donations_001",
+      "name": "(計)",
+      "date": null,
+      "value": 360000
+    },
+    {
+      "id": "tx_0002",
+      "category_id": "cat_individual_donations_001",
+      "name": "神宮 幸四郎",
+      "date": "R5.10.2",
+      "value": 10000
+    },
+    {
+      "id": "tx_0003",
+      "category_id": "cat_individual_donations_001",
+      "name": "平 耕志郎",
+      "date": "R5.10.31",
+      "value": 100000
+    },
+    {
+      "id": "tx_0004",
+      "category_id": "cat_individual_donations_001",
+      "name": "青山 佾",
+      "date": "R5.11.9",
+      "value": 100000
+    },
+    {
+      "id": "tx_0005",
+      "category_id": "cat_individual_donations_001",
+      "name": "黒澤 功記",
+      "date": "R5.11.17",
+      "value": 30000
+    },
+    {
+      "id": "tx_0006",
+      "category_id": "cat_individual_donations_001",
+      "name": "溝口 秀昭",
+      "date": "R5.11.23",
+      "value": 300000
+    },
+    {
+      "id": "tx_0007",
+      "category_id": "cat_individual_donations_001",
+      "name": "菊池 淳",
+      "date": "R5.12.18",
+      "value": 100000
+    },
+    {
+      "id": "tx_0008",
+      "category_id": "cat_individual_donations_001",
+      "name": "田邊 光",
+      "date": "R5.12.18",
+      "value": 1000000
+    },
+    {
+      "id": "tx_0009",
+      "category_id": "cat_individual_donations_001",
+      "name": "出井 良輔",
+      "date": "R5.12.25",
+      "value": 3600000
+    },
+    {
+      "id": "tx_0010",
+      "category_id": "cat_individual_donations_001",
+      "name": "姫野 晋太郎",
+      "date": "R5.12.26",
+      "value": 300000
     }
-  },
-  {
-    "flow_type": "income",
-    "category": "個人からの寄附",
-    "name": "平 耕志郎",
-    "date": "R5.10.31",
-    "value": 100000,
-    "handwritten": false,
-    "fullData": {
-      "寄附者の氏名（又は名称）": "平 耕志郎",
-      "金 額": 100000,
-      "年 月 日": "5 10 31",
-      "住 所 （又は所在地）": "東京都中野区本町1-4-6-1203",
-      "職業（又は代表者の氏名）": "会社役員",
-      "備 考": null
-    }
-  },
-  {
-    "flow_type": "income",
-    "category": "個人からの寄附",
-    "name": "青山 佾",
-    "date": "R5.11.9",
-    "value": 100000,
-    "handwritten": false,
-    "fullData": {
-      "寄附者の氏名（又は名称）": "青山 佾",
-      "金 額": 100000,
-      "年 月 日": "5 11 9",
-      "住 所 （又は所在地）": "東京都中野区新井1-35-8",
-      "職業（又は代表者の氏名）": "大学教授",
-      "備 考": null
-    }
-  },
-  {
-    "flow_type": "income",
-    "category": "個人からの寄附",
-    "name": "黒澤 功記",
-    "date": "R5.11.17",
-    "value": 30000,
-    "handwritten": false,
-    "fullData": {
-      "寄附者の氏名（又は名称）": "黒澤 功記",
-      "金 額": 30000,
-      "年 月 日": "5 11 17",
-      "住 所 （又は所在地）": "東京都中野区中野4-3-1-1203",
-      "職業（又は代表者の氏名）": "会社役員",
-      "備 考": null
-    }
-  },
-  {
-    "flow_type": "income",
-    "category": "個人からの寄附",
-    "name": "溝口 秀昭",
-    "date": "R5.11.23",
-    "value": 300000,
-    "handwritten": false,
-    "fullData": {
-      "寄附者の氏名（又は名称）": "溝口 秀昭",
-      "金 額": 300000,
-      "年 月 日": "5 11 23",
-      "住 所 （又は所在地）": "東京都中野区本町1-3-12-602",
-      "職業（又は代表者の氏名）": "医師",
-      "備 考": null
-    }
-  },
-  {
-    "flow_type": "income",
-    "category": "個人からの寄附",
-    "name": "菊池 淳",
-    "date": "R5.12.18",
-    "value": 100000,
-    "handwritten": false,
-    "fullData": {
-      "寄附者の氏名（又は名称）": "菊池 淳",
-      "金 額": 100000,
-      "年 月 日": "5 12 18",
-      "住 所 （又は所在地）": "東京都世田谷区宮坂3-29-1",
-      "職業（又は代表者の氏名）": "会社役員",
-      "備 考": null
-    }
-  },
-  {
-    "flow_type": "income",
-    "category": "個人からの寄附",
-    "name": "田邊 光",
-    "date": "R5.12.18",
-    "value": 1000000,
-    "handwritten": false,
-    "fullData": {
-      "寄附者の氏名（又は名称）": "田邊 光",
-      "金 額": 1000000,
-      "年 月 日": "5 12 18",
-      "住 所 （又は所在地）": "東京都杉並区上荻4-14-35",
-      "職業（又は代表者の氏名）": "会社役員",
-      "備 考": null
-    }
-  },
-  {
-    "flow_type": "income",
-    "category": "個人からの寄附",
-    "name": "出井 良輔",
-    "date": "R5.12.25",
-    "value": 3600000,
-    "handwritten": false,
-    "fullData": {
-      "寄附者の氏名（又は名称）": "出井 良輔",
-      "金 額": 3600000,
-      "年 月 日": "5 12 25",
-      "住 所 （又は所在地）": "東京都中野区本町1-4-6-801",
-      "職業（又は代表者の氏名）": "会社役員",
-      "備 考": null
-    }
-  },
-  {
-    "flow_type": "income",
-    "category": "個人からの寄附",
-    "name": "姫野 晋太郎",
-    "date": "R5.12.26",
-    "value": 300000,
-    "handwritten": false,
-    "fullData": {
-      "寄附者の氏名（又は名称）": "姫野 晋太郎",
-      "金 額": 300000,
-      "年 月 日": "5 12 26",
-      "住 所 （又は所在地）": "東京都渋谷区松濤1-7-6-101",
-      "職業（又は代表者の氏名）": "会社役員",
-      "備 考": null
-    }
-  },
-  {
-    "flow_type": "income",
-    "category": "その他（この頁の小計）",
-    "name": "この頁の小計",
-    "date": null,
-    "value": 5540000,
-    "handwritten": false,
-    "fullData": {
-      "摘要": "この頁の小計",
-      "金額": 5540000
-    }
-  },
-  {
-    "flow_type": "income",
-    "category": "その他（その他の寄附）",
-    "name": "その他の寄附",
-    "date": null,
-    "value": 960000,
-    "handwritten": true,
-    "fullData": {
-      "摘要": "その他の寄附",
-      "金額": 960000
-    }
-  },
-  {
-    "flow_type": "income",
-    "category": "その他（合計）",
-    "name": "合 計",
-    "date": null,
-    "value": 6500000,
-    "handwritten": false,
-    "fullData": {
-      "摘要": "合 計",
-      "金額": 6500000
-    }
-  }
-]
+  ]
+}

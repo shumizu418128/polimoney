@@ -1,160 +1,78 @@
 {
-  "items": [
+  "year": 2025,
+  "categories": [
     {
-      "flow_type": "",
-      "category": "その他（土地）",
-      "name": "土地",
-      "date": null,
-      "value": 0,
-      "handwritten": false,
-      "fullData": {
-        "資産等の項目別区分": "ア 土地",
-        "有無": "無",
-        "備考": ""
-      }
+      "id": "cat01",
+      "name": "その他（土地）",
+      "parent": null,
+      "direction": "income"
     },
     {
-      "flow_type": "",
-      "category": "その他（建物）",
-      "name": "建物",
-      "date": null,
-      "value": 0,
-      "handwritten": false,
-      "fullData": {
-        "資産等の項目別区分": "イ 建物",
-        "有無": "無",
-        "備考": ""
-      }
+      "id": "cat02",
+      "name": "その他（建物）",
+      "parent": null,
+      "direction": "income"
     },
     {
-      "flow_type": "",
-      "category": "その他（地上権・賃借権）",
-      "name": "建物の所有を目的とする地上権又は土地の賃借権",
-      "date": null,
-      "value": 0,
-      "handwritten": false,
-      "fullData": {
-        "資産等の項目別区分": "ウ 建物の所有を目的とする地上権又は土地の賃借権",
-        "有無": "無",
-        "備考": ""
-      }
+      "id": "cat03",
+      "name": "その他（建物の所有を目的とする地上権又は土地の賃借権）",
+      "parent": null,
+      "direction": "income"
     },
     {
-      "flow_type": "",
-      "category": "その他（動産）",
-      "name": "取得の価額が100万円を超える動産",
-      "date": null,
-      "value": 0,
-      "handwritten": false,
-      "fullData": {
-        "資産等の項目別区分": "エ 取得の価額が100万円を超える動産",
-        "有無": "無",
-        "備考": ""
-      }
+      "id": "cat04",
+      "name": "その他（取得の価額が100万円を超える動産）",
+      "parent": null,
+      "direction": "income"
     },
     {
-      "flow_type": "",
-      "category": "その他（預貯金）",
-      "name": "預金（普通預金及び当座預金を除く。）又は貯金（普通貯金を除く。）",
-      "date": null,
-      "value": 0,
-      "handwritten": false,
-      "fullData": {
-        "資産等の項目別区分": "オ 預金（普通預金及び当座預金を除く。）又は貯金（普通貯金を除く。）",
-        "有無": "無",
-        "備考": ""
-      }
+      "id": "cat05",
+      "name": "その他（預金(普通預金及び当座預金を除く。)又は貯金(普通貯金を除く。)）",
+      "parent": null,
+      "direction": "income"
     },
     {
-      "flow_type": "",
-      "category": "その他（金銭信託）",
-      "name": "金銭信託",
-      "date": null,
-      "value": 0,
-      "handwritten": false,
-      "fullData": {
-        "資産等の項目別区分": "カ 金銭信託",
-        "有無": "無",
-        "備考": ""
-      }
+      "id": "cat06",
+      "name": "その他（金銭信託）",
+      "parent": null,
+      "direction": "income"
     },
     {
-      "flow_type": "",
-      "category": "その他（有価証券）",
-      "name": "有価証券",
-      "date": null,
-      "value": 0,
-      "handwritten": false,
-      "fullData": {
-        "資産等の項目別区分": "キ 有価証券",
-        "有無": "無",
-        "備考": ""
-      }
+      "id": "cat07",
+      "name": "その他（有価証券）",
+      "parent": null,
+      "direction": "income"
     },
     {
-      "flow_type": "",
-      "category": "その他（出資による権利）",
-      "name": "出資による権利",
-      "date": null,
-      "value": 0,
-      "handwritten": false,
-      "fullData": {
-        "資産等の項目別区分": "ク 出資による権利",
-        "有無": "無",
-        "備考": ""
-      }
+      "id": "cat08",
+      "name": "その他（出資による権利）",
+      "parent": null,
+      "direction": "income"
     },
     {
-      "flow_type": "",
-      "category": "その他（貸付金）",
-      "name": "貸付先ごとの残高が100万円を超える貸付金",
-      "date": null,
-      "value": 0,
-      "handwritten": false,
-      "fullData": {
-        "資産等の項目別区分": "ケ 貸付先ごとの残高が100万円を超える貸付金",
-        "有無": "無",
-        "備考": ""
-      }
+      "id": "cat09",
+      "name": "その他（貸付先ごとの残高が100万円を超える貸付金）",
+      "parent": null,
+      "direction": "income"
     },
     {
-      "flow_type": "",
-      "category": "その他（敷金）",
-      "name": "支払われた金額が100万円を超える敷金",
-      "date": null,
-      "value": 0,
-      "handwritten": false,
-      "fullData": {
-        "資産等の項目別区分": "コ 支払われた金額が100万円を超える敷金",
-        "有無": "無",
-        "備考": ""
-      }
+      "id": "cat10",
+      "name": "その他（支払われた金額が100万円を超える敷金）",
+      "parent": null,
+      "direction": "income"
     },
     {
-      "flow_type": "",
-      "category": "その他（施設利用権）",
-      "name": "取得の価額が100万円を超える施設の利用に関する権利",
-      "date": null,
-      "value": 0,
-      "handwritten": false,
-      "fullData": {
-        "資産等の項目別区分": "サ 取得の価額が100万円を超える施設の利用に関する権利",
-        "有無": "無",
-        "備考": ""
-      }
+      "id": "cat11",
+      "name": "その他（取得の価額が100万円を超える施設の利用に関する権利）",
+      "parent": null,
+      "direction": "income"
     },
     {
-      "flow_type": "",
-      "category": "その他（借入金）",
-      "name": "借入先ごとの残高が100万円を超える借入金",
-      "date": null,
-      "value": 0,
-      "handwritten": false,
-      "fullData": {
-        "資産等の項目別区分": "シ 借入先ごとの残高が100万円を超える借入金",
-        "有無": "無",
-        "備考": ""
-      }
+      "id": "cat12",
+      "name": "借入金",
+      "parent": null,
+      "direction": "income"
     }
-  ]
+  ],
+  "transactions": []
 }

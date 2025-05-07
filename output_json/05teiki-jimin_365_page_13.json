@@ -1,20 +1,33 @@
-[
-  {
-    "flow_type": "expense",
-    "category": "宣伝事業費",
-    "name": "ポスター裏貼り費",
-    "date": "R5.7.10",
-    "value": 139480,
-    "handwritten": false,
-    "fullData": {
-      "支出の目的": "ポスター裏貼り費",
-      "金額": 139480,
-      "年月日": "R5.7.10",
-      "支出を受けた者の氏名（又は名称）": "株式会社ヴィアックス",
-      "支出を受けた者の住所（又は所在地）": "東京都中野区弥生町2-8-15",
-      "備考": null,
-      "項目別区分": "宣伝事業費",
-      "項目別区分詳細": "宣伝広報費"
+{
+  "year": 2023,
+  "categories": [
+    {
+      "id": "cat001",
+      "name": "宣伝事業費",
+      "parent": null,
+      "direction": "expense"
+    },
+    {
+      "id": "cat002",
+      "name": "その他の経費",
+      "parent": null,
+      "direction": "expense"
     }
-  }
-]
+  ],
+  "transactions": [
+    {
+      "id": "tran001",
+      "category_id": "cat001",
+      "name": "ポスター裏貼り費",
+      "date": "R5.7.10",
+      "value": 139480
+    },
+    {
+      "id": "tran002",
+      "category_id": "cat002",
+      "name": "その他の支出",
+      "date": null,
+      "value": 76000
+    }
+  ]
+}

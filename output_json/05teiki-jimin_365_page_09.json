@@ -1,26 +1,26 @@
-[
-  {
-    "flow_type": "income",
-    "category": "政治団体からの寄附",
-    "name": "その他の寄附",
-    "date": null,
-    "value": 70000,
-    "handwritten": false,
-    "fullData": {
-      "項目": "その他の寄附",
-      "金額": 70000
+{
+  "year": null,
+  "categories": [
+    {
+      "id": "cat1",
+      "name": "総収入",
+      "parent": null,
+      "direction": "income"
+    },
+    {
+      "id": "cat2",
+      "name": "政治団体からの寄付",
+      "parent": "cat1",
+      "direction": "income"
     }
-  },
-  {
-    "flow_type": "income",
-    "category": "政治団体からの寄附",
-    "name": "合計",
-    "date": null,
-    "value": 70000,
-    "handwritten": false,
-    "fullData": {
-      "項目": "合計",
-      "金額": 70000
+  ],
+  "transactions": [
+    {
+      "id": "tx1",
+      "category_id": "cat2",
+      "name": "その他の寄附",
+      "date": null,
+      "value": 70000
     }
-  }
-]
+  ]
+}

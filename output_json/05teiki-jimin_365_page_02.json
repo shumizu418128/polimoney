@@ -1,387 +1,432 @@
-[
-  {
-    "flow_type": "income",
-    "category": "前年からの繰越額",
-    "name": "前年からの繰越額",
-    "date": null,
-    "value": 1934303,
-    "handwritten": false,
-    "fullData": {
-      "項": "I 収入総額",
-      "目": "(1) 前年からの繰越額",
-      "金額": 1934303
+{
+  "categories": [
+    {
+      "id": "cat_income_total",
+      "name": "その他（収入総額）",
+      "parent": null,
+      "direction": "income"
+    },
+    {
+      "id": "cat_income_prev_carryover",
+      "name": "前年度からの繰越",
+      "parent": "cat_income_total",
+      "direction": "income"
+    },
+    {
+      "id": "cat_income_current_year",
+      "name": "その他（本年の収入額）",
+      "parent": "cat_income_total",
+      "direction": "income"
+    },
+    {
+      "id": "cat_income_party_fees",
+      "name": "党費・会費",
+      "parent": "cat_income_current_year",
+      "direction": "income"
+    },
+    {
+      "id": "cat_income_donations_total_sum",
+      "name": "その他（寄附）",
+      "parent": "cat_income_current_year",
+      "direction": "income"
+    },
+    {
+      "id": "cat_income_donations_by_type_sum",
+      "name": "その他（寄附の区分）",
+      "parent": "cat_income_donations_total_sum",
+      "direction": "income"
+    },
+    {
+      "id": "cat_income_donations_individual",
+      "name": "個人からの寄付",
+      "parent": "cat_income_donations_by_type_sum",
+      "direction": "income"
+    },
+    {
+      "id": "cat_income_donations_corporate",
+      "name": "法人その他の団体からの寄付",
+      "parent": "cat_income_donations_by_type_sum",
+      "direction": "income"
+    },
+    {
+      "id": "cat_income_donations_political_org",
+      "name": "政治団体からの寄付",
+      "parent": "cat_income_donations_by_type_sum",
+      "direction": "income"
+    },
+    {
+      "id": "cat_income_donations_party_anonymous",
+      "name": "その他（政党匿名寄附）",
+      "parent": "cat_income_donations_total_sum",
+      "direction": "income"
+    },
+    {
+      "id": "cat_income_publication_etc",
+      "name": "その他（機関紙誌の発行その他の事業による収入）",
+      "parent": "cat_income_current_year",
+      "direction": "income"
+    },
+    {
+      "id": "cat_income_borrowings",
+      "name": "借入金",
+      "parent": "cat_income_current_year",
+      "direction": "income"
+    },
+    {
+      "id": "cat_income_grants_hq",
+      "name": "その他（本部又は支部から供与された交付金に係る収入）",
+      "parent": "cat_income_current_year",
+      "direction": "income"
+    },
+    {
+      "id": "cat_income_other_revenue",
+      "name": "その他（その他の収入）",
+      "parent": "cat_income_current_year",
+      "direction": "income"
+    },
+    {
+      "id": "cat_income_other_revenue_under_100k",
+      "name": "その他（10万円未満のものの計）",
+      "parent": "cat_income_other_revenue",
+      "direction": "income"
+    },
+    {
+      "id": "cat_income_other_revenue_over_100k",
+      "name": "その他（10万円以上のものの計）",
+      "parent": "cat_income_other_revenue",
+      "direction": "income"
+    },
+    {
+      "id": "cat_expense_total",
+      "name": "その他（支出総額）",
+      "parent": null,
+      "direction": "expense"
+    },
+    {
+      "id": "cat_expense_ordinary",
+      "name": "その他（経常経費の合計）",
+      "parent": "cat_expense_total",
+      "direction": "expense"
+    },
+    {
+      "id": "cat_expense_personnel",
+      "name": "人件費",
+      "parent": "cat_expense_ordinary",
+      "direction": "expense"
+    },
+    {
+      "id": "cat_expense_utilities",
+      "name": "光熱水費",
+      "parent": "cat_expense_ordinary",
+      "direction": "expense"
+    },
+    {
+      "id": "cat_expense_supplies",
+      "name": "備品・消耗品費",
+      "parent": "cat_expense_ordinary",
+      "direction": "expense"
+    },
+    {
+      "id": "cat_expense_office",
+      "name": "事務所費",
+      "parent": "cat_expense_ordinary",
+      "direction": "expense"
+    },
+    {
+      "id": "cat_expense_political_activities_total",
+      "name": "その他（政治活動費の合計）",
+      "parent": "cat_expense_total",
+      "direction": "expense"
+    },
+    {
+      "id": "cat_expense_organizational",
+      "name": "組織活動費",
+      "parent": "cat_expense_political_activities_total",
+      "direction": "expense"
+    },
+    {
+      "id": "cat_expense_election",
+      "name": "選挙関係費",
+      "parent": "cat_expense_political_activities_total",
+      "direction": "expense"
+    },
+    {
+      "id": "cat_expense_publication_etc_activities",
+      "name": "その他（機関紙誌の発行その他の事業費）",
+      "parent": "cat_expense_political_activities_total",
+      "direction": "expense"
+    },
+    {
+      "id": "cat_expense_publication_activities",
+      "name": "機関紙誌の発行事業費",
+      "parent": "cat_expense_publication_etc_activities",
+      "direction": "expense"
+    },
+    {
+      "id": "cat_expense_publicity_activities",
+      "name": "宣伝事業費",
+      "parent": "cat_expense_publication_etc_activities",
+      "direction": "expense"
+    },
+    {
+      "id": "cat_expense_party_activities",
+      "name": "政治資金パーティ開催事業費",
+      "parent": "cat_expense_publication_etc_activities",
+      "direction": "expense"
+    },
+    {
+      "id": "cat_expense_other_biz_activities",
+      "name": "その他の事業費",
+      "parent": "cat_expense_publication_etc_activities",
+      "direction": "expense"
+    },
+    {
+      "id": "cat_expense_research",
+      "name": "調査研究費",
+      "parent": "cat_expense_political_activities_total",
+      "direction": "expense"
+    },
+    {
+      "id": "cat_expense_donations_paid",
+      "name": "寄付・交付金",
+      "parent": "cat_expense_political_activities_total",
+      "direction": "expense"
+    },
+    {
+      "id": "cat_expense_other",
+      "name": "その他の経費",
+      "parent": "cat_expense_political_activities_total",
+      "direction": "expense"
+    },
+    {
+      "id": "cat_carryover_next_year",
+      "name": "翌年度への繰越",
+      "parent": null,
+      "direction": "expense"
     }
-  },
-  {
-    "flow_type": "income",
-    "category": "党費・会費",
-    "name": "個人の負担する党費又は会費",
-    "date": null,
-    "value": 261000,
-    "handwritten": false,
-    "fullData": {
-      "項": "I 収入総額",
-      "親項目": "(2) 本年の収入額",
-      "目": "個人の負担する党費又は会費",
-      "備考": "278人",
-      "金額": 261000
+  ],
+  "transactions": [
+    {
+      "id": "trans1",
+      "category_id": "cat_income_total",
+      "name": "収入総額 (1)～(2)の計",
+      "value": 15055303
+    },
+    {
+      "id": "trans2",
+      "category_id": "cat_income_prev_carryover",
+      "name": "(1) 前年からの繰越額",
+      "value": 1934303
+    },
+    {
+      "id": "trans3",
+      "category_id": "cat_income_current_year",
+      "name": "(2) 本年の収入額 1～6の計",
+      "value": 13121000
+    },
+    {
+      "id": "trans4",
+      "category_id": "cat_income_party_fees",
+      "name": "個人の負担する党費又は会費",
+      "value": 261000
+    },
+    {
+      "id": "trans5",
+      "category_id": "cat_income_donations_total_sum",
+      "name": "2 寄附 (1)～(2)の計",
+      "value": 7370000
+    },
+    {
+      "id": "trans6",
+      "category_id": "cat_income_donations_by_type_sum",
+      "name": "(1) 寄附の区分 ア～ウの計",
+      "value": 7370000
+    },
+    {
+      "id": "trans7",
+      "category_id": "cat_income_donations_individual",
+      "name": "ア 個人からの寄附",
+      "value": 6500000
+    },
+    {
+      "id": "trans8",
+      "category_id": "cat_income_donations_corporate",
+      "name": "イ 法人その他の団体からの寄附",
+      "value": 800000
+    },
+    {
+      "id": "trans9",
+      "category_id": "cat_income_donations_political_org",
+      "name": "ウ 政治団体からの寄附",
+      "value": 70000
+    },
+    {
+      "id": "trans10",
+      "category_id": "cat_income_donations_party_anonymous",
+      "name": "(2) 政党匿名寄附",
+      "value": 0
+    },
+    {
+      "id": "trans11",
+      "category_id": "cat_income_publication_etc",
+      "name": "3 機関紙誌の発行その他の事業による収入",
+      "value": 5490000
+    },
+    {
+      "id": "trans12",
+      "category_id": "cat_income_publication_etc",
+      "name": "(1) (3のうち特定パーティーの対価に係る収入)(1000万円以上の政治資金パーティー)",
+      "value": 0
+    },
+    {
+      "id": "trans13",
+      "category_id": "cat_income_publication_etc",
+      "name": "(2) (3のうち政治資金パーティーの対価に係る収入)(1パーティーで1人20万円超の支払)",
+      "value": 0
+    },
+    {
+      "id": "trans14",
+      "category_id": "cat_income_publication_etc",
+      "name": "((2)のうち対価の支払いのあっせんによるもの)",
+      "value": 0
+    },
+    {
+      "id": "trans15",
+      "category_id": "cat_income_borrowings",
+      "name": "4 借入金",
+      "value": 0
+    },
+    {
+      "id": "trans16",
+      "category_id": "cat_income_grants_hq",
+      "name": "5 本部又は支部から供与された交付金に係る収入",
+      "value": 860000
+    },
+    {
+      "id": "trans17",
+      "category_id": "cat_income_other_revenue",
+      "name": "6 その他の収入 (1)～(2)の計",
+      "value": 0
+    },
+    {
+      "id": "trans18",
+      "category_id": "cat_income_other_revenue_under_100k",
+      "name": "(1) 10万円未満のものの計",
+      "value": 0
+    },
+    {
+      "id": "trans19",
+      "category_id": "cat_income_other_revenue_over_100k",
+      "name": "(2) 10万円以上のものの計",
+      "value": 0
+    },
+    {
+      "id": "trans20",
+      "category_id": "cat_expense_total",
+      "name": "II 支出総額 1～2の計",
+      "value": 12509124
+    },
+    {
+      "id": "trans21",
+      "category_id": "cat_expense_ordinary",
+      "name": "1 経常経費の合計 (1)～(4)の計",
+      "value": 5869240
+    },
+    {
+      "id": "trans22",
+      "category_id": "cat_expense_personnel",
+      "name": "(1) 人件費",
+      "value": 3600000
+    },
+    {
+      "id": "trans23",
+      "category_id": "cat_expense_utilities",
+      "name": "(2) 光熱水費",
+      "value": 240000
+    },
+    {
+      "id": "trans24",
+      "category_id": "cat_expense_supplies",
+      "name": "(3) 備品・消耗品費",
+      "value": 829240
+    },
+    {
+      "id": "trans25",
+      "category_id": "cat_expense_office",
+      "name": "(4) 事務所費",
+      "value": 1200000
+    },
+    {
+      "id": "trans26",
+      "category_id": "cat_expense_political_activities_total",
+      "name": "2 政治活動費の合計 (1)～(6)の計",
+      "value": 6639884
+    },
+    {
+      "id": "trans27",
+      "category_id": "cat_expense_organizational",
+      "name": "(1) 組織活動費",
+      "value": 3116535
+    },
+    {
+      "id": "trans28",
+      "category_id": "cat_expense_election",
+      "name": "(2) 選挙関係費",
+      "value": 0
+    },
+    {
+      "id": "trans29",
+      "category_id": "cat_expense_publication_etc_activities",
+      "name": "(3) 機関紙誌の発行その他の事業費 ア～エの計",
+      "value": 3112349
+    },
+    {
+      "id": "trans30",
+      "category_id": "cat_expense_publication_activities",
+      "name": "ア 機関紙誌の発行事業費",
+      "value": 0
+    },
+    {
+      "id": "trans31",
+      "category_id": "cat_expense_publicity_activities",
+      "name": "イ 宣伝事業費",
+      "value": 215480
+    },
+    {
+      "id": "trans32",
+      "category_id": "cat_expense_party_activities",
+      "name": "ウ 政治資金パーティー開催事業費",
+      "value": 2896869
+    },
+    {
+      "id": "trans33",
+      "category_id": "cat_expense_other_biz_activities",
+      "name": "エ その他の事業費",
+      "value": 0
+    },
+    {
+      "id": "trans34",
+      "category_id": "cat_expense_research",
+      "name": "(4) 調査研究費",
+      "value": 21000
+    },
+    {
+      "id": "trans35",
+      "category_id": "cat_expense_donations_paid",
+      "name": "(5) 寄附・交付金",
+      "value": 390000
+    },
+    {
+      "id": "trans36",
+      "category_id": "cat_expense_other",
+      "name": "(6) その他の経費",
+      "value": 0
+    },
+    {
+      "id": "trans37",
+      "category_id": "cat_carryover_next_year",
+      "name": "III 翌年への繰越額 (I－II)",
+      "value": 2546179
     }
-  },
-  {
-    "flow_type": "income",
-    "category": "個人からの寄附",
-    "name": "個人からの寄附",
-    "date": null,
-    "value": 6500000,
-    "handwritten": false,
-    "fullData": {
-      "項": "I 収入総額",
-      "親項目": "2 寄附",
-      "分類": "(1) 寄附の区分",
-      "目": "ア 個人からの寄附",
-      "備考": "(うち特定寄附)",
-      "金額": 6500000
-    }
-  },
-  {
-    "flow_type": "income",
-    "category": "法人その他の団体からの寄附",
-    "name": "法人その他の団体からの寄附",
-    "date": null,
-    "value": 800000,
-    "handwritten": false,
-    "fullData": {
-      "項": "I 収入総額",
-      "親項目": "2 寄附",
-      "分類": "(1) 寄附の区分",
-      "目": "イ 法人その他の団体からの寄附",
-      "金額": 800000
-    }
-  },
-  {
-    "flow_type": "income",
-    "category": "政治団体からの寄附",
-    "name": "政治団体からの寄附",
-    "date": null,
-    "value": 70000,
-    "handwritten": false,
-    "fullData": {
-      "項": "I 収入総額",
-      "親項目": "2 寄附",
-      "分類": "(1) 寄附の区分",
-      "目": "ウ 政治団体からの寄附",
-      "備考": "(寄附のうち寄附のあっせんによるもの)",
-      "金額": 70000
-    }
-  },
-  {
-    "flow_type": "income",
-    "category": "その他（政党匿名寄附）",
-    "name": "政党匿名寄附",
-    "date": null,
-    "value": 0,
-    "handwritten": false,
-    "fullData": {
-      "項": "I 収入総額",
-      "親項目": "2 寄附",
-      "目": "(2) 政党匿名寄附",
-      "金額": 0
-    }
-  },
-  {
-    "flow_type": "income",
-    "category": "その他（機関紙誌の発行その他の事業による収入）",
-    "name": "機関紙誌の発行その他の事業による収入",
-    "date": null,
-    "value": 5490000,
-    "handwritten": false,
-    "fullData": {
-      "項": "I 収入総額",
-      "目": "3 機関紙誌の発行その他の事業による収入",
-      "金額": 5490000
-    }
-  },
-  {
-    "flow_type": "income",
-    "category": "その他（特定パーティー収入）",
-    "name": "特定パーティーの対価に係る収入(1000万円以上の政治資金パーティー)",
-    "date": null,
-    "value": 0,
-    "handwritten": false,
-    "fullData": {
-      "項": "I 収入総額",
-      "親項目": "3 機関紙誌の発行その他の事業による収入",
-      "目": "(1) (3のうち特定パーティーの対価に係る収入(1000万円以上の政治資金パーティー))",
-      "金額": 0
-    }
-  },
-  {
-    "flow_type": "income",
-    "category": "その他（政治資金パーティー収入）",
-    "name": "政治資金パーティーの対価に係る収入(1パーティーで1人20万円超の支払)",
-    "date": null,
-    "value": 0,
-    "handwritten": false,
-    "fullData": {
-      "項": "I 収入総額",
-      "親項目": "3 機関紙誌の発行その他の事業による収入",
-      "目": "(2) (3のうち政治資金パーティーの対価に係る収入(1パーティーで1人20万円超の支払))",
-      "備考": "((2)のうち対価の支払いのあっせんによるもの)",
-      "金額": 0
-    }
-  },
-  {
-    "flow_type": "income",
-    "category": "借入金",
-    "name": "借入金",
-    "date": null,
-    "value": 0,
-    "handwritten": false,
-    "fullData": {
-      "項": "I 収入総額",
-      "目": "4 借入金",
-      "金額": 0
-    }
-  },
-  {
-    "flow_type": "income",
-    "category": "その他（本部又は支部からの交付金）",
-    "name": "本部又は支部から供与された交付金に係る収入",
-    "date": null,
-    "value": 860000,
-    "handwritten": false,
-    "fullData": {
-      "項": "I 収入総額",
-      "目": "5 本部又は支部から供与された交付金に係る収入",
-      "金額": 860000
-    }
-  },
-  {
-    "flow_type": "income",
-    "category": "その他（その他の収入・10万円未満）",
-    "name": "その他の収入 10万円未満のものの計",
-    "date": null,
-    "value": 0,
-    "handwritten": false,
-    "fullData": {
-      "項": "I 収入総額",
-      "親項目": "6 その他の収入",
-      "目": "(1) 10万円未満のものの計",
-      "金額": 0
-    }
-  },
-  {
-    "flow_type": "income",
-    "category": "その他（その他の収入・10万円以上）",
-    "name": "その他の収入 10万円以上のものの計",
-    "date": null,
-    "value": 0,
-    "handwritten": false,
-    "fullData": {
-      "項": "I 収入総額",
-      "親項目": "6 その他の収入",
-      "目": "(2) 10万円以上のものの計",
-      "金額": 0
-    }
-  },
-  {
-    "flow_type": "expense",
-    "category": "人件費",
-    "name": "人件費",
-    "date": null,
-    "value": 3600000,
-    "handwritten": false,
-    "fullData": {
-      "項": "II 支出総額",
-      "親項目": "1 経常経費の合計",
-      "目": "(1) 人件費",
-      "金額": 3600000
-    }
-  },
-  {
-    "flow_type": "expense",
-    "category": "光熱水費",
-    "name": "光熱水費",
-    "date": null,
-    "value": 240000,
-    "handwritten": false,
-    "fullData": {
-      "項": "II 支出総額",
-      "親項目": "1 経常経費の合計",
-      "目": "(2) 光熱水費",
-      "金額": 240000
-    }
-  },
-  {
-    "flow_type": "expense",
-    "category": "備品・消耗品費",
-    "name": "備品・消耗品費",
-    "date": null,
-    "value": 829240,
-    "handwritten": false,
-    "fullData": {
-      "項": "II 支出総額",
-      "親項目": "1 経常経費の合計",
-      "目": "(3) 備品・消耗品費",
-      "金額": 829240
-    }
-  },
-  {
-    "flow_type": "expense",
-    "category": "事務所費",
-    "name": "事務所費",
-    "date": null,
-    "value": 1200000,
-    "handwritten": false,
-    "fullData": {
-      "項": "II 支出総額",
-      "親項目": "1 経常経費の合計",
-      "目": "(4) 事務所費",
-      "金額": 1200000
-    }
-  },
-  {
-    "flow_type": "expense",
-    "category": "組織活動費",
-    "name": "組織活動費",
-    "date": null,
-    "value": 3116535,
-    "handwritten": false,
-    "fullData": {
-      "項": "II 支出総額",
-      "親項目": "2 政治活動費の合計",
-      "目": "(1) 組織活動費",
-      "金額": 3116535
-    }
-  },
-  {
-    "flow_type": "expense",
-    "category": "選挙関係費",
-    "name": "選挙関係費",
-    "date": null,
-    "value": 0,
-    "handwritten": false,
-    "fullData": {
-      "項": "II 支出総額",
-      "親項目": "2 政治活動費の合計",
-      "目": "(2) 選挙関係費",
-      "金額": 0
-    }
-  },
-  {
-    "flow_type": "expense",
-    "category": "機関紙誌の発行事業費",
-    "name": "機関紙誌の発行事業費",
-    "date": null,
-    "value": 0,
-    "handwritten": false,
-    "fullData": {
-      "項": "II 支出総額",
-      "親項目": "2 政治活動費の合計",
-      "分類": "(3) 機関紙誌の発行その他の事業費",
-      "目": "ア 機関紙誌の発行事業費",
-      "金額": 0
-    }
-  },
-  {
-    "flow_type": "expense",
-    "category": "宣伝事業費",
-    "name": "宣伝事業費",
-    "date": null,
-    "value": 215480,
-    "handwritten": false,
-    "fullData": {
-      "項": "II 支出総額",
-      "親項目": "2 政治活動費の合計",
-      "分類": "(3) 機関紙誌の発行その他の事業費",
-      "目": "イ 宣伝事業費",
-      "金額": 215480
-    }
-  },
-  {
-    "flow_type": "expense",
-    "category": "政治資金パーティ開催事業費",
-    "name": "政治資金パーティー開催事業費",
-    "date": null,
-    "value": 2896869,
-    "handwritten": false,
-    "fullData": {
-      "項": "II 支出総額",
-      "親項目": "2 政治活動費の合計",
-      "分類": "(3) 機関紙誌の発行その他の事業費",
-      "目": "ウ 政治資金パーティー開催事業費",
-      "金額": 2896869
-    }
-  },
-  {
-    "flow_type": "expense",
-    "category": "その他の事業費",
-    "name": "その他の事業費",
-    "date": null,
-    "value": 0,
-    "handwritten": false,
-    "fullData": {
-      "項": "II 支出総額",
-      "親項目": "2 政治活動費の合計",
-      "分類": "(3) 機関紙誌の発行その他の事業費",
-      "目": "エ その他の事業費",
-      "金額": 0
-    }
-  },
-  {
-    "flow_type": "expense",
-    "category": "調査研究費",
-    "name": "調査研究費",
-    "date": null,
-    "value": 21000,
-    "handwritten": false,
-    "fullData": {
-      "項": "II 支出総額",
-      "親項目": "2 政治活動費の合計",
-      "目": "(4) 調査研究費",
-      "金額": 21000
-    }
-  },
-  {
-    "flow_type": "expense",
-    "category": "寄附・交付金",
-    "name": "寄附・交付金",
-    "date": null,
-    "value": 390000,
-    "handwritten": false,
-    "fullData": {
-      "項": "II 支出総額",
-      "親項目": "2 政治活動費の合計",
-      "目": "(5) 寄附・交付金",
-      "金額": 390000
-    }
-  },
-  {
-    "flow_type": "expense",
-    "category": "その他の経費",
-    "name": "その他の経費",
-    "date": null,
-    "value": 0,
-    "handwritten": false,
-    "fullData": {
-      "項": "II 支出総額",
-      "親項目": "2 政治活動費の合計",
-      "目": "(6) その他の経費",
-      "金額": 0
-    }
-  },
-  {
-    "flow_type": null,
-    "category": "翌年への繰越額",
-    "name": "翌年への繰越額",
-    "date": null,
-    "value": 3406179,
-    "handwritten": true,
-    "fullData": {
-      "項": "III 翌年への繰越額",
-      "目": "(I - II)",
-      "金額": 3406179,
-      "訂正前金額": 2546179
-    }
-  }
-]
+  ]
+}

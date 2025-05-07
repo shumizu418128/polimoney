@@ -1,15 +1,26 @@
-[
-  {
-    "flow_type": "expense",
-    "category": "その他の経費",
-    "name": "その他の支出",
-    "date": null,
-    "value": 21000,
-    "handwritten": false,
-    "fullData": {
-      "項目": "その他の支出",
-      "金額": 21000,
-      "項目別区分": "調査研究費（新聞図書費）"
+{
+  "year": null,
+  "categories": [
+    {
+      "id": "pxxx1",
+      "name": "その他（政治活動費）",
+      "parent": null,
+      "direction": "expense"
+    },
+    {
+      "id": "cxxx1",
+      "name": "調査研究費",
+      "parent": "pxxx1",
+      "direction": "expense"
     }
-  }
-]
+  ],
+  "transactions": [
+    {
+      "id": "txxx1",
+      "category_id": "cxxx1",
+      "name": "その他の支出",
+      "date": null,
+      "value": 21000
+    }
+  ]
+}

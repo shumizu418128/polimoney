@@ -1,35 +1,26 @@
-[
-  {
-    "items": [
-      {
-        "flow_type": "expense",
-        "category": "組織活動費",
-        "name": "会場使用費",
-        "date": "R5.9.4",
-        "value": 64900,
-        "handwritten": true,
-        "fullData": {
-          "支出の目的": "会場使用費",
-          "金額": 64900,
-          "年月日": "5 9 4",
-          "項目別区分": "組織活動費 (会議費)",
-          "支出を受けた者の氏名（又は名称）": "KCC株式会社",
-          "支出を受けた者の住所（又は所在地）": "愛知県名古屋市西区名駅2-27-8",
-          "備考": ""
-        }
-      },
-      {
-        "flow_type": "expense",
-        "category": "その他の経費",
-        "name": "その他の支出",
-        "date": null,
-        "value": 8800,
-        "handwritten": true,
-        "fullData": {
-          "支出の目的": "その他の支出",
-          "金額": 8800
-        }
-      }
-    ]
-  }
-]
+{
+  "year": 2023,
+  "categories": [
+    {
+      "id": "cat_politics_001",
+      "name": "その他（政治活動費）",
+      "parent": null,
+      "direction": "expense"
+    },
+    {
+      "id": "cat_org_act_002",
+      "name": "組織活動費",
+      "parent": "cat_politics_001",
+      "direction": "expense"
+    }
+  ],
+  "transactions": [
+    {
+      "id": "txn_001",
+      "category_id": "cat_org_act_002",
+      "name": "会場使用費",
+      "date": "R5.9.4",
+      "value": 64900
+    }
+  ]
+}

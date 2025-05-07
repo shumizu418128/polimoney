@@ -1,26 +1,26 @@
-[
-  {
-    "flow_type": "expense",
-    "category": "その他の経費",
-    "name": "その他の支出",
-    "date": null,
-    "value": 252500,
-    "handwritten": false,
-    "fullData": {
-      "項目": "その他の支出",
-      "金額": 252500
+{
+  "year": null,
+  "categories": [
+    {
+      "id": "cat_org_activity_001",
+      "name": "組織活動費",
+      "parent": null,
+      "direction": "expense"
+    },
+    {
+      "id": "cat_other_expenses_001",
+      "name": "その他の経費",
+      "parent": "cat_org_activity_001",
+      "direction": "expense"
     }
-  },
-  {
-    "flow_type": "expense",
-    "category": "その他（合計）",
-    "name": "合計",
-    "date": null,
-    "value": 252500,
-    "handwritten": false,
-    "fullData": {
-      "項目": "合計",
-      "金額": 252500
+  ],
+  "transactions": [
+    {
+      "id": "tran_other_spending_001",
+      "category_id": "cat_other_expenses_001",
+      "name": "その他の支出",
+      "date": null,
+      "value": 252500
     }
-  }
-]
+  ]
+}

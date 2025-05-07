@@ -1,39 +1,20 @@
-[
-  {
-    "flow_type": "income",
-    "category": "その他（事業収入）",
-    "name": "いでい良輔を応援するつどい",
-    "date": "12月7日",
-    "value": 5490000,
-    "handwritten": false,
-    "fullData": {
-      "事業の種類": "いでい良輔を応援するつどい",
-      "金額": "5,490,000",
-      "備考": "12月7日 中野区 中野セントラルパークカンファレンスB1F"
+{
+  "year": 2025,
+  "categories": [
+    {
+      "id": "cat_001",
+      "name": "その他（機関紙誌の発行その他の事業による収入）",
+      "parent": null,
+      "direction": "income"
     }
-  },
-  {
-    "flow_type": "income",
-    "category": "その他（小計）",
-    "name": "この頁の小計",
-    "date": null,
-    "value": 5490000,
-    "handwritten": false,
-    "fullData": {
-      "摘要": "この頁の小計",
-      "金額": "5,490,000"
+  ],
+  "transactions": [
+    {
+      "id": "trans_001",
+      "category_id": "cat_001",
+      "name": "いでい良輔を応援するつどい",
+      "date": "R6.12.7",
+      "value": 5490000
     }
-  },
-  {
-    "flow_type": "income",
-    "category": "その他（合計）",
-    "name": "合 計",
-    "date": null,
-    "value": 5490000,
-    "handwritten": false,
-    "fullData": {
-      "摘要": "合 計",
-      "金額": "5,490,000"
-    }
-  }
-]
+  ]
+}

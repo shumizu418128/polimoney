@@ -1,16 +1,18 @@
 {
-    "items": [
-        {
-            "flow_type": "expense",
-            "category": "その他の経費",
-            "name": "その他の支出",
-            "date": null,
-            "value": 390000,
-            "handwritten": false,
-            "fullData": {
-                "支出の目的": "その他の支出",
-                "金額": 390000
-            }
-        }
-    ]
+  "categories": [
+    {
+      "id": "cat1",
+      "name": "寄付・交付金",
+      "parent": null,
+      "direction": "expense"
+    }
+  ],
+  "transactions": [
+    {
+      "id": "trans1",
+      "category_id": "cat1",
+      "name": "その他の支出",
+      "value": 390000
+    }
+  ]
 }
