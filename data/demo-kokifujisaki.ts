@@ -1,10 +1,10 @@
 import type { Flow, OldTransaction, Profile, Report } from '@/models/type';
 
 const profile: Profile = {
-  name: '藤崎 剛暉', //
-  title: '自由民主党', //
-  party: '自由民主党', //
-  district: '東京都墨田区', //
+  name: '藤崎 剛暉',
+  title: '自由民主党',
+  party: '自由民主党',
+  district: '東京都墨田区',
   image: '/demo-kokifujisaki.jpg',
 };
 
