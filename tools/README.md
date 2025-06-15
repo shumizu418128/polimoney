@@ -1,6 +1,6 @@
-# PDF Image Analyzer with Gemini
+# PDF Image Analyzer with vLLM
 
-このプロジェクトは、PDFファイルの各ページを画像に変換し、Google Gemini API を使用して画像の内容（特に政治資金収支報告書を想定）を解析し、結果をJSONファイルとして出力するツール群を提供します。
+このプロジェクトは、PDFファイルの各ページを画像に変換し、langchain を使用して画像の内容（特に政治資金収支報告書を想定）を解析し、結果をJSONファイルとして出力するツール群を提供します。
 
 ## 機能
 
@@ -8,8 +8,8 @@
     *   指定されたPDFファイルの各ページをPNG画像に変換します。
     *   出力ファイル名はゼロ埋めされたページ番号を含み、ソート時に正しい順序になります (例: `document_page_001.png`)。
     *   出力先ディレクトリを指定できます（デフォルト: `output_images`）。
-*   **画像解析とJSON出力 (`analyze_image_gemini.py`)**:
-    *   指定された画像ファイルまたはディレクトリ内の全PNG画像をGoogle Gemini API (gemini-1.5-pro-latest) を使用して解析します。
+*   **画像解析とJSON出力 (`analyze_image.py`)**:
+    *   指定された画像ファイルまたはディレクトリ内の全PNG画像をLLMを使用して解析します。
     *   政治資金収支報告書の画像からテキスト情報を抽出し、構造化されたJSON形式で出力するように設計されたデフォルトプロンプトが含まれています。プロンプトは引数で変更可能です。
     *   解析結果は指定されたディレクトリ（デフォルト: `output_json`）にJSONファイルとして保存されます (例: `document_page_001.json`)。
     *   APIからの応答に含まれる可能性のあるマークダウン指示子 (` ```json ` など) は自動的に除去されます。
@@ -22,7 +22,7 @@
 PDFファイル
 ↓ pdf_to_image.py
 エクセルもしくはPDFのスクリーンショット群（output_images/*.png）
-↓ analyze_image_gemini.py
+↓ analyze_image.py
 パースされたJSONファイル群（output_json/*.json）
 ↓ merge_jsons.py
 とりまとめられた単一のjsonとcsv
@@ -73,7 +73,7 @@ PDFファイル
     ```.env
     GOOGLE_API_KEY='YOUR_API_KEY'
     ```
-    `.env` ファイルを使用する場合は、スクリプト実行前に `dotenv` を使って読み込むか、`analyze_image_gemini.py` 内で `load_dotenv()` を呼び出すように修正が必要です（現在のスクリプトには含まれていません）。
+    `.env` ファイルを使用する場合は、スクリプト実行前に `dotenv` を使って読み込むか、`analyze_image.py` 内で `load_dotenv()` を呼び出すように修正が必要です（現在のスクリプトには含まれていません）。
 
 ## lint, format
 
@@ -109,16 +109,16 @@ poetry run pyright .
 3.  **画像を解析してJSONを生成**:
     *   **単一の画像ファイル**:
         ```bash
-        python analyze_image_gemini.py output_images/your_document_page_001.png -o output_json
+        python analyze_image.py output_images/your_document_page_001.png -o output_json
         ```
     *   **ディレクトリ内の全PNG画像**:
         ```bash
-        python analyze_image_gemini.py -i output_images -o output_json
+        python analyze_image.py -i output_images -o output_json
         ```
     これにより、`output_json` ディレクトリに `your_document_page_001.json`, `your_document_page_002.json`, ... が生成されます。
 
 ## 注意点
 
-*   Gemini API の利用には料金が発生する場合があります。Google Cloud Platform の料金体系を確認してください。
-*   解析結果の精度は、画像の品質、複雑さ、およびGeminiモデルの能力に依存します。
+*   vLLM API の利用には料金が発生する場合があります。Google Cloud Platform の料金体系を確認してください。
+*   解析結果の精度は、画像の品質、複雑さ、およびvLLMモデルの能力に依存します。
 *   大量のページを処理する場合、APIのレート制限に達する可能性があります。必要に応じてスクリプトに待機処理などを追加してください。

@@ -1,8 +1,9 @@
 'use client';
-
 import { Box, HStack, Heading, Text } from '@chakra-ui/react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useState } from 'react';
+import SNSSharePanel from './SNSSharePanel';
 
 export function Header() {
   const pathname = usePathname();
@@ -32,6 +33,7 @@ export function Header() {
             <Link href={'#summary'}>収支の流れ</Link>
             <Link href={'#income'}>収入の一覧</Link>
             <Link href={'#expense'}>支出の一覧</Link>
+            <SNSSharePanel className="mr-4" />
           </HStack>
         )}
       </HStack>

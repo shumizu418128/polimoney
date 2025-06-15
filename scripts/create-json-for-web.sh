@@ -48,7 +48,7 @@ echo "json dir: $tmpdir_json"
 echo python tools/pdf_to_images.py -o $tmpdir_image $pdf_path
 python tools/pdf_to_images.py -o $tmpdir_image $pdf_path
 # Images => JSON Files
-python tools/analyze_image_gemini.py -i $tmpdir_image -o $tmpdir_json
+python tools/analyze_image.py -i $tmpdir_image -o $tmpdir_json
 # JSON Files => Merged JSON File
 merge_json_file=$work_dir/merged.json
 python tools/merge_jsons.py -i $tmpdir_json -o $merge_json_file

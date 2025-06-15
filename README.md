@@ -49,7 +49,7 @@ npm run dev
 
 - **Python**
   - **pdf2image**
-  - **Google Gemini AI**
+  - **LangChain**
 
 詳細は`tools/README.md`を参照してください。
 

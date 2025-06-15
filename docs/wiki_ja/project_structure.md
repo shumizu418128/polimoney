@@ -14,7 +14,7 @@ Polimoneyプロジェクトは、複数のコアシステムと関連ファイ�
 2. **データ処理ツール**
    - 政治資金報告書を処理するPythonスクリプト
    - PDF変換、画像分析、データ抽出の自動化ワークフロー
-   - Google Gemini APIを活用したAI画像解析
+   - vLLMを活用したAI画像解析
 
 3. **データモデル**
    - コアデータ構造のTypeScript定義
@@ -46,7 +46,7 @@ polimoney/
 │   └── converter.ts      # データ変換ユーティリティ
 ├── tools/                # データ処理ツール
 │   ├── pdf_to_images.py  # PDF→画像変換
-│   ├── analyze_image_gemini.py # 画像分析
+│   ├── analyze_image.py # 画像分析
 │   └── merge_jsons.py    # JSONデータ統合
 └── .github/workflows/    # CI/CDワークフロー
     └── nextjs.yml        # デプロイ設定
@@ -133,8 +133,8 @@ export default function PoliticianPage({ params }: { params: { slug: string } })
 #### `tools/pdf_to_images.py`
 PDF報告書をPNG画像に変換するPythonスクリプトです。データ抽出プロセスの最初のステップを担当します。
 
-#### `tools/analyze_image_gemini.py`
-Google Gemini APIを使用して画像からテキストを抽出するPythonスクリプトです。OCRとAI解析を組み合わせています。
+#### `tools/analyze_image.py`
+vLLMを使用して画像からテキストを抽出するPythonスクリプトです。OCRとAI解析を組み合わせています。
 
 #### `tools/merge_jsons.py`
 個別のJSON出力を統合データセットに結合するPythonスクリプトです。複数の政治家データを一つのデータセットにまとめます。

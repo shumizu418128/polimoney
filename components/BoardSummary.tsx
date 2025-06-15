@@ -1,5 +1,4 @@
 'use client';
-
 import { BoardChart } from '@/components/BoardChart';
 import { BoardContainer } from '@/components/BoardContainer';
 import type { Flow, Profile, Report } from '@/models/type';
@@ -14,8 +13,10 @@ import {
   Stat,
   Text,
 } from '@chakra-ui/react';
+import html2canvas from 'html2canvas';
 import { LandmarkIcon } from 'lucide-react';
 import { usePathname, useRouter } from 'next/navigation';
+import { useState } from 'react';
 import { BoardChartFixed } from './BoardChartFixed';
 
 type Props = {
@@ -34,6 +35,7 @@ export function BoardSummary({
   useFixedBoardChart = false,
 }: Props) {
   const router = useRouter();
+  const [copied, setCopied] = useState(false);
   const pathname = usePathname();
 
   // 現在のパスから現在のレポートIDを取得
@@ -46,7 +48,27 @@ export function BoardSummary({
     report,
     ...otherReports.filter((r) => r.id !== report.id),
   ];
-
+  const handleCopyImage = async () => {
+    const button = document.getElementById('copy-image-btn');
+    if (button) button.style.display = 'none'; // ボタンを非表示
+    const element = document.getElementById('summary');
+    if (!element) return;
+    const canvas = await html2canvas(element, { scale: 3 });
+    canvas.toBlob(async (blob) => {
+      if (blob) {
+        try {
+          await navigator.clipboard.write([
+            new window.ClipboardItem({ 'image/png': blob }),
+          ]);
+          setCopied(true);
+          setTimeout(() => setCopied(false), 3000);
+        } catch (e) {
+          alert('コピーに失敗しました');
+        }
+      }
+      if (button) button.style.display = ''; // ボタンを再表示
+    });
+  };
   return (
     <BoardContainer id={'summary'}>
       {/* プロフィール */}
@@ -195,6 +217,141 @@ export function BoardSummary({
       ) : (
         <BoardChart flows={flows} />
       )}
+      <Box
+        mb={3}
+        display={{ base: 'none', md: 'flex' }}
+        justifyContent="flex-end"
+      >
+        <button
+          type="button"
+          id="copy-image-btn"
+          onClick={handleCopyImage}
+          style={{
+            border: '1px solid #ccc',
+            borderRadius: '6px',
+            padding: '8px 16px',
+            background: '#fff',
+            cursor: 'pointer',
+            transition: 'background 0.2s, border-color 0.2s',
+          }}
+          onMouseOver={(e) => {
+            (e.currentTarget as HTMLButtonElement).style.background = '#f5f5f5';
+            (e.currentTarget as HTMLButtonElement).style.borderColor = '#888';
+          }}
+          onFocus={(e) => {
+            (e.currentTarget as HTMLButtonElement).style.background = '#f5f5f5';
+            (e.currentTarget as HTMLButtonElement).style.borderColor = '#888';
+          }}
+          onMouseOut={(e) => {
+            (e.currentTarget as HTMLButtonElement).style.background = '#fff';
+            (e.currentTarget as HTMLButtonElement).style.borderColor = '#ccc';
+          }}
+          onBlur={(e) => {
+            (e.currentTarget as HTMLButtonElement).style.background = '#fff';
+            (e.currentTarget as HTMLButtonElement).style.borderColor = '#ccc';
+          }}
+        >
+          {copied ? (
+            <span style={{ display: 'inline-flex', alignItems: 'center' }}>
+              {/* コピー済みアイコン（チェックマーク） */}
+              <svg
+                width="28"
+                height="28"
+                viewBox="0 0 28 28"
+                fill="none"
+                role="img"
+                aria-label="コピー完了アイコン"
+              >
+                <title>コピー完了アイコン</title>
+                <defs>
+                  <linearGradient
+                    id="copied-gradient"
+                    x1="0"
+                    y1="0"
+                    x2="28"
+                    y2="0"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stopColor="#FDD2F8" />
+                    <stop offset="1" stopColor="#A6D1FF" />
+                  </linearGradient>
+                </defs>
+                <circle cx="14" cy="14" r="14" fill="url(#copied-gradient)" />
+                <path
+                  d="M8 15l4 4 8-8"
+                  stroke="#fff"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+
+              <span
+                style={{
+                  marginLeft: 8,
+                  color: '#A6D1FF',
+                  fontWeight: 500,
+                  width: 140,
+                  height: 28,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  textAlign: 'center',
+                }}
+              >
+                コピーしました
+              </span>
+            </span>
+          ) : (
+            <span style={{ display: 'inline-flex', alignItems: 'center' }}>
+              {/* コピーアイコン */}
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                role="img"
+                aria-label="コピーアイコン"
+              >
+                <title>コピーアイコン</title>
+                <rect
+                  x="4"
+                  y="7"
+                  width="10"
+                  height="10"
+                  rx="2"
+                  stroke="#555"
+                  strokeWidth="2"
+                />
+                <rect
+                  x="7"
+                  y="5"
+                  width="10"
+                  height="10"
+                  rx="2"
+                  stroke="#555"
+                  strokeWidth="2"
+                  opacity="0.5"
+                />
+              </svg>
+
+              <span
+                style={{
+                  marginLeft: 8,
+                  width: 140,
+                  height: 28,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  textAlign: 'center',
+                }}
+              >
+                画像としてコピー
+              </span>
+            </span>
+          )}
+        </button>
+      </Box>
     </BoardContainer>
   );
 }

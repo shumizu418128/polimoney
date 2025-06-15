@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import json
 import logging
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Protocol
 
 import PIL.Image
 
@@ -13,6 +13,46 @@ if TYPE_CHECKING:
 
 # ロガーの設定
 logger = logging.getLogger("analyzer")
+
+
+class ImageLoader(Protocol):
+    """画像ローダーのインターフェース"""
+
+    def load_image(self, image_path: Path) -> PIL.Image.Image:
+        """
+        画像ファイルを読み込みます。
+
+        Args:
+            image_path: 画像ファイルのパス
+
+        Returns:
+            読み込まれた画像オブジェクト
+
+        Raises:
+            FileNotFoundError: 画像ファイルが見つからない場合
+            PIL.UnidentifiedImageError: 画像形式が認識できない場合
+            OSError: その他のI/Oエラーが発生した場合
+
+        """
+        ...
+
+
+class FileWriter(Protocol):
+    """ファイル書き込みのインターフェース"""
+
+    def write_file(self, path: Path, content: str) -> None:
+        """
+        ファイルに内容を書き込みます。
+
+        Args:
+            path: 書き込み先のファイルパス
+            content: 書き込む内容
+
+        Raises:
+            OSError: ファイル書き込みエラーが発生した場合
+
+        """
+        ...
 
 
 class FileIO:

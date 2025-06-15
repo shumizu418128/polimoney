@@ -7,7 +7,8 @@ import logging
 import time
 from typing import TYPE_CHECKING
 
-from analyzer.client import AnalysisError, GeminiClient
+from analyzer.client import AnalysisError
+from analyzer.llm_client import LangChainLLMClient
 
 if TYPE_CHECKING:
     from pathlib import Path
@@ -22,15 +23,17 @@ OUTPUT_JSON_DIR = "output_json"
 class ImageProcessor:
     """画像処理と解析を行うクラス"""
 
-    def __init__(self, gemini_client: GeminiClient) -> None:
+    def __init__(self, llm_client: LangChainLLMClient, skip_if_exists: bool = False) -> None:
         """
         ImageProcessorを初期化します。
 
         Args:
-            gemini_client: Gemini APIクライアント
+            llm_client: LLMクライアント
+            skip_if_exists: 既存のJSONファイルをスキップするかどうか
 
         """
-        self.gemini_client = gemini_client
+        self.llm_client = llm_client
+        self.skip_if_exists = skip_if_exists
 
     def process_single_image(
         self,
@@ -49,20 +52,26 @@ class ImageProcessor:
 
         """
         image_filename = image_path.name
+        output_filename = output_dir / f"{image_path.stem}.json"
+
+        # skip_if_existsが有効で、出力ファイルが既に存在する場合はスキップ
+        if self.skip_if_exists and output_filename.exists():
+            logger.info("スキップ: %s (出力ファイルが既に存在します)", image_filename)
+            return True
+
         logger.info("画像を解析中: %s", image_filename)
         try:
-            result = self.gemini_client.analyze_image_with_gemini(image_path)
+            # クライアントの種類に応じて適切なメソッドを呼び出す
+            result = self.llm_client.analyze_image_with_llm(image_path)
         except AnalysisError as e:
             logger.exception("エラー: %s", e.message)
             return False
-
-        output_filename = output_dir / f"{image_path.stem}.json"
 
         try:
             json.loads(result)
         except json.JSONDecodeError as json_err:
             logger.warning(
-                "警告 (%s): Geminiからの応答は有効なJSONではありません。エラー: %s",
+                "警告 (%s): vLLMからの応答は有効なJSONではありません。エラー: %s",
                 image_filename,
                 json_err,
             )
@@ -78,7 +87,7 @@ class ImageProcessor:
                 "error_message": (f"解析結果のファイル書き込みに失敗しました: {output_filename} - {e}"),
                 "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
             }
-            self.gemini_client.error_items.append(error_info)
+            self.llm_client.error_items.append(error_info)
             logger.exception(
                 "エラー: %s 解析結果のファイル書き込みに失敗しました: %s",
                 image_filename,

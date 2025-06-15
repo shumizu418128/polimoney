@@ -1,4 +1,4 @@
-"""Gemini APIを使用して画像の内容を解析し、結果をJSONファイルとして保存するスクリプト。"""
+"""画像の内容を解析し、結果をJSONファイルとして保存するスクリプト。"""
 
 from __future__ import annotations
 
@@ -9,7 +9,7 @@ import os
 import sys
 from pathlib import Path
 
-from analyzer.client import GeminiClient
+from analyzer.client import create_llm_client
 from analyzer.file_io import FileIO
 from analyzer.image_processor import OUTPUT_JSON_DIR, ImageProcessor
 
@@ -23,7 +23,7 @@ def main() -> None:
     スクリプトのエントリーポイント。
 
     コマンドライン引数をパースし、指定されたPNG画像ファイルまたは
-    ディレクトリ内の全PNGファイルをGemini APIで解析し、
+    ディレクトリ内の全PNGファイルを解析し、
     その結果をJSONファイルとして保存します。
 
     Args:
@@ -44,7 +44,7 @@ def main() -> None:
     """
     parser = argparse.ArgumentParser(
         description=(
-            "Gemini APIを使用して画像の内容を解析し、"
+            "画像の内容を解析し、"
             "結果をJSONファイルとして保存します。"
             " 単一ファイルまたはディレクトリ内の全PNGファイルを処理できます。"
         ),
@@ -78,20 +78,55 @@ def main() -> None:
         help="並列処理を行うスレッド数。",
     )
 
+    parser.add_argument(
+        "-p",
+        "--provider",
+        default="google",
+        choices=["google", "anthropic", "openai"],
+        help="使用するLLMプロバイダー。デフォルト: 'google'",
+    )
+
+    parser.add_argument(
+        "-s",
+        "--skip-if-exists",
+        action="store_true",
+        help="出力先のJSONファイルが既に存在する場合は処理をスキップする。",
+    )
+
     args = parser.parse_args()
-    api_key = os.getenv("GOOGLE_API_KEY")
-    if not api_key:
-        logger.error("エラー: 環境変数 GOOGLE_API_KEY が設定されていません。")
-        sys.exit(1)
+
+    # プロバイダーに応じた環境変数のチェック
+    if args.provider == "google":
+        api_key = os.getenv("GOOGLE_API_KEY")
+        if not api_key:
+            logger.error("エラー: 環境変数 GOOGLE_API_KEY が設定されていません。")
+            sys.exit(1)
+    elif args.provider == "anthropic":
+        api_key = os.getenv("ANTHROPIC_API_KEY")
+        if not api_key:
+            logger.error("エラー: 環境変数 ANTHROPIC_API_KEY が設定されていません。")
+            sys.exit(1)
+    elif args.provider == "openai":
+        api_key = os.getenv("OPENAI_API_KEY")
+        if not api_key:
+            logger.error("エラー: 環境変数 OPENAI_API_KEY が設定されていません。")
+            sys.exit(1)
+    else:
+        api_key = None
 
     # ファイルI/Oハンドラの作成
     file_io = FileIO()
 
-    # Gemini APIクライアントの作成
-    gemini_client = GeminiClient(api_key, image_loader=file_io, file_writer=file_io)
+    # LLMクライアントの作成
+    llm_client = create_llm_client(
+        provider=args.provider,
+        image_loader=file_io,
+        file_writer=file_io,
+    )
+    logger.info("LLMモデル: %s", llm_client.config.get_model_name())
 
     # 画像プロセッサの作成
-    image_processor = ImageProcessor(gemini_client)
+    image_processor = ImageProcessor(llm_client, skip_if_exists=args.skip_if_exists)
 
     output_dir = Path(args.output_dir)
 
@@ -143,7 +178,7 @@ def main() -> None:
         success_count = sum(1 for _, success in results if success)
         failed_count = total_files - success_count
 
-        gemini_client.save_error_log(output_dir)
+        llm_client.save_error_log(output_dir)
 
     logger.info("--- 全 %s ファイルの処理が完了しました ---", total_files)
     logger.info("成功: %s ファイル, 失敗: %s ファイル", success_count, failed_count)
